@@ -19,12 +19,12 @@ python -m src.main --days 7 --limit 10
 
 Le premier essai crée deux fichiers dans `reports/` : un rapport Markdown et son PDF. Sans clés, il utilise les flux RSS de secours et un mode de test sans analyse IA.
 
-## 3. Configurer Inoreader
+## 3. Utiliser Inoreader gratuitement
 
 1. Dans Inoreader, abonne-toi à des sources sur le calcul quantique.
 2. Regroupe-les dans un dossier ou avec un tag `Quantum`.
-3. Crée un jeton d'accès API Inoreader et conserve-le uniquement comme secret.
-4. Vérifie dans `config/sources.yml` que `stream_id` correspond à ton dossier/tag. L'exemple est `user/-/label/Quantum`.
+3. Ne crée pas de jeton API : l'API Inoreader n'est pas disponible avec le compte gratuit.
+4. Le programme récupère gratuitement les flux RSS directs renseignés dans `config/sources.yml`. Tu peux en ajouter d'autres depuis les sites des organismes ou entreprises suivis.
 
 ## 4. Configurer OpenAI
 
@@ -32,7 +32,6 @@ Le premier essai crée deux fichiers dans `reports/` : un rapport Markdown et so
 2. Pour un test PowerShell ponctuel, définis les deux variables :
 
 ```powershell
-$env:INOREADER_ACCESS_TOKEN="ton_jeton"
 $env:OPENAI_API_KEY="ta_cle"
 ```
 
@@ -53,8 +52,9 @@ git push -u origin main
 
 Dans GitHub, ouvre `Settings > Secrets and variables > Actions` et ajoute :
 
-- `INOREADER_ACCESS_TOKEN`
 - `OPENAI_API_KEY`
+
+`INOREADER_ACCESS_TOKEN` est uniquement nécessaire si tu passes plus tard à une offre incluant l'API.
 
 Ouvre ensuite l'onglet `Actions`, sélectionne **Veille quantique hebdomadaire**, puis **Run workflow**. Si le test est bon, le workflow s'exécutera ensuite chaque vendredi. Il ajoutera les rapports au dépôt.
 

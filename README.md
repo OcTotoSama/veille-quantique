@@ -20,19 +20,17 @@ Inoreader (RSS/API) -> collect.py -> articles des 7 jours -> filter.py
    pip install -r requirements.txt
    ```
 
-2. Dans Inoreader, créer un dossier ou un tag `Quantum` et y ranger les flux retenus. Relever son identifiant de flux, puis l'indiquer dans `config/sources.yml` si besoin.
+2. Avec un compte Inoreader gratuit, tu peux t'abonner aux mêmes flux pour ta lecture personnelle. L'automatisation utilise directement les flux RSS publics de `config/sources.yml` : aucune clé Inoreader n'est nécessaire.
 
 3. Créer un fichier `.env` local (jamais versionné) avec :
 
    ```text
-   INOREADER_ACCESS_TOKEN=...
    OPENAI_API_KEY=...
    ```
 
    Dans PowerShell, charger les variables pour la session :
 
    ```powershell
-   $env:INOREADER_ACCESS_TOKEN="..."
    $env:OPENAI_API_KEY="..."
    ```
 
@@ -46,14 +44,14 @@ Les fichiers `reports/AAAA-MM-JJ.md` et `reports/AAAA-MM-JJ.pdf` sont créés. S
 
 ## Configuration
 
-- `config/sources.yml` : dossier/label Inoreader et flux RSS de secours.
+- `config/sources.yml` : flux RSS publics utilisés gratuitement. L'API Inoreader est facultative et réservée aux comptes qui y ont accès.
 - `config/keywords.yml` : termes principaux, secondaires et exclusions ; modifier ce fichier rend le filtrage explicable au jury.
 - `prompts/analyse.txt` : consignes imposées au modèle ; les scores sont pondérés à 45 % pertinence, 25 % nouveauté et 30 % importance.
 
 ## Publication GitHub
 
 1. Créer un dépôt GitHub vide nommé `veille-quantique`, puis pousser ce dossier.
-2. Dans **Settings > Secrets and variables > Actions**, créer les secrets `INOREADER_ACCESS_TOKEN` et `OPENAI_API_KEY`.
+2. Dans **Settings > Secrets and variables > Actions**, créer le secret `OPENAI_API_KEY`. Le secret `INOREADER_ACCESS_TOKEN` est facultatif et ne sert que pour les comptes Inoreader ayant accès à l'API.
 3. Dans **Actions**, lancer une première fois le workflow **Veille quantique hebdomadaire** via `workflow_dispatch`.
 4. Le workflow s'exécute ensuite chaque vendredi à 07:00 UTC et versionne les PDF dans `reports/`.
 

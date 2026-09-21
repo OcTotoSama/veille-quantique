@@ -1,7 +1,9 @@
 # Remplace ou complète ces flux par tes abonnements Inoreader.
 # Inoreader est la source principale : crée dans Inoreader un dossier ou un tag "Quantum".
 inoreader:
-  enabled: true
+  # L'API est réservée aux plans Inoreader payants. Laisse false avec un compte gratuit.
+  # Inoreader peut tout de même servir à lire et organiser les mêmes flux RSS manuellement.
+  enabled: false
   # Exemple : user/-/label/Quantum. La valeur exacte dépend de ton dossier/tag Inoreader.
   stream_id: "user/-/label/Quantum"
   base_url: "https://www.inoreader.com/reader/api/0"
