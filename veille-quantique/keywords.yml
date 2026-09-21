@@ -1,0 +1,27 @@
+# Un article est conservé s'il contient au moins un terme principal et aucun terme exclu.
+primary:
+  - informatique quantique
+  - ordinateur quantique
+  - calcul quantique
+  - quantum computing
+  - quantum computer
+  - qubit
+  - superconducting qubit
+  - trapped ion
+  - quantum error correction
+  - quantum processor
+  - quantum algorithm
+secondary:
+  - IBM Quantum
+  - Google Quantum AI
+  - IonQ
+  - Quantinuum
+  - Pasqal
+  - Alice and Bob
+  - neutral atoms
+  - photonic quantum
+  - quantum networking
+  - post-quantum cryptography
+exclude:
+  - quantum leap
+  - quantum of solace

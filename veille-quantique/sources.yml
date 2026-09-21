@@ -1,0 +1,16 @@
+# Remplace ou complète ces flux par tes abonnements Inoreader.
+# Inoreader est la source principale : crée dans Inoreader un dossier ou un tag "Quantum".
+inoreader:
+  enabled: true
+  # Exemple : user/-/label/Quantum. La valeur exacte dépend de ton dossier/tag Inoreader.
+  stream_id: "user/-/label/Quantum"
+  base_url: "https://www.inoreader.com/reader/api/0"
+
+# Secours utile en local, sans compte Inoreader. Les flux restent soumis au même filtrage.
+rss_fallback:
+  - name: IBM Quantum Blog
+    url: "https://www.ibm.com/quantum/blog/rss.xml"
+  - name: Google Quantum AI
+    url: "https://quantumai.google/blog/rss/"
+  - name: arXiv Quantum Physics
+    url: "https://export.arxiv.org/rss/quant-ph"
